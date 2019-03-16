@@ -1,0 +1,150 @@
+body {
+  --bg: rgba(25, 30, 50, 0.6);
+  --fg: rgba(150, 150, 150, 0.3);
+  --component-bg: hsla(216, 18%, 45%, 0.6);
+  --component-fg: hsla(215, 30%, 15%, 0.6);
+  --border: rgba(153, 153, 153, 0.6);
+  --text-fg: rgba(222, 222, 222, 0.6);
+  --primary-hue: 220;
+  --primary: hsla(220, 100%, 50%, 0.8);
+  --primary-highlight: hsla(220, 100%, 70%, 0.8);
+
+  --secondary: rgba(0, 216, 255, 0.8);
+  --secondary-highlight: rgba(101, 232, 255, 0.8);
+  --succcess: hsla(145, 60%, 50%, 0.8);
+  --focus: hsl(225, 100%, 60%);
+  --error: hsla(340, 61%, 50%, 0.8);
+  --radius1: 5px;
+  --radius: 3px;
+  --round-radius: 50em;
+  --padding: 8px;
+  --text-size: 14px;
+  --heading: 30px;
+  --sub-heading: 26px;
+  --title: 24px;
+  --sub-title: 18px;
+  --slow-trans: all 0.8s;
+  --trans: all 0.4s;
+  --delay: 0.8s;
+  --long-delay: 1.8s;
+  background: rgba(20, 23, 27, 1);
+  color: var(--text-fg);
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+@keyframes indicating {
+  to {
+    background-position: 350% 0, 0 0;
+  }
+}
+.skin {
+  @import "vars";
+  * {
+    background: rgba(20, 23, 27, 0);
+    color: $text_fg;
+  }
+  .ba-cut {
+    position: relative;
+    padding: 3px;
+    ::backdrop {
+      background: #fff;
+    }
+    & > ::before {
+      // clip: rect()
+    }
+  }
+  .interactive {
+    position: relative;
+    // overflow: hidden;
+    cursor: pointer;
+    background-image: linear-gradient($border, $component_bg 50%);
+    width: fit-content;
+    height: fit-content;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s;
+    padding: 3px;
+    z-index: 1;
+    backface-visibility: hidden;
+    perspective: 1000px;
+    transform: translateZ(0);
+    // z-index: -2;
+    &.button {
+      padding: 3px $padding;
+      border-radius: $radius;
+      border: 2px solid $component_bg;
+    }
+    &:hover {
+      &:before {
+        width: 100%;
+      }
+    }
+    &::before,
+    &::after {
+      z-index: -1;
+      content: "";
+      box-sizing: border-box;
+      transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s;
+      // pointer-events: none;
+    }
+    &::before {
+      display: block;
+      background-image: linear-gradient(
+        90deg,
+        $primary_highlight 3px,
+        $primary
+      );
+      width: 0;
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+    }
+
+    &.item {
+      padding-left: 6px;
+      $bgimage: linear-gradient($primary_highlight, $secondary 50%);
+      $indicate_bg: linear-gradient(
+        90deg,
+        hsla($hue, 100%, 50%, 0) 10%,
+        hsla($hue, 100%, 80%, 0.8) 50%,
+        hsla($hue, 100%, 50%, 0) 70%
+      );
+      &:hover {
+        &:before {
+          opacity: 1;
+          width: 90%;
+          animation: indicating 3.5s infinite;
+          border-top-right-radius: $round_radius;
+          border-bottom-right-radius: $round_radius;
+        }
+      }
+      &::before {
+        border-left: 3px solid $secondary;
+        //background-image: linear-gradient(90deg, $primary_highlight, $primary 50%);
+
+        background-image: $indicate_bg,
+          linear-gradient($primary_highlight, $primary 50%);
+
+        background-blend-mode: color-dodge;
+        background-size: 120px 100%, 100% 100%;
+        background-position: -150% 0, 0 0;
+        background-repeat: no-repeat, no-repeat;
+        opacity: 0.5;
+        width: 10%;
+        border-top-right-radius: $radius_med;
+        border-bottom-right-radius: $radius_med;
+        animation: none;
+      }
+    }
+  }
+  .fluid {
+    width: 100%;
+  }
+  .panel {
+  }
+  .app-bar {
+  }
+}
+
+.App {
+  text-align: center;
+}
