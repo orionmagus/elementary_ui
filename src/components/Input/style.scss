@@ -1,0 +1,22 @@
+$component_bg: var(--component-bg);
+$input_focus_bg: var(--component-fg);
+$border: var(--border);
+$text_fg: var(--text-fg);
+$primary: var(--primary);
+$primary_highlight: var(--primary-highlight);
+$secondary_highlight: var(--secondary-highlight);
+$success: var(--succcess);
+$error: var(--error);
+$open_width: var(--opened-width);
+$round_radius: var(--round-radius);
+
+.elementary,
+.input {
+  input {
+    background: transparent;
+    border: 0 none;
+  }
+  select {
+    display: none;
+  }
+}

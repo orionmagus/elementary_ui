@@ -7,8 +7,8 @@ import React, {
   useLayoutEffect
 } from "react";
 import ld from "./lodashy";
-import Immutable from "immutable";
-const ActionTypes = {
+import Immutable from "seamless-immutable";
+export const ActionTypes = {
   INIT:
     "@@redux/INIT" +
     Math.random()

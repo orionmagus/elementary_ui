@@ -21,3 +21,4 @@ export const baseMiddleware = store => next => action => {},
       dispatch
     };
   };
+export default applyMiddleware;
