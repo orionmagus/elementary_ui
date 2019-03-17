@@ -2,9 +2,9 @@ import React from "react";
 import "./style.scss";
 import pose from "react-pose";
 const StaggerAnimHeight = pose.div({});
-export const Loader = props => (
-    <div className="wrap-loader">
-      <div className={`${props.comet === true ? "comet" : "bar"}-loader`}>
+export const Loader = ({ comet, ...props }) => (
+    <div className="wrap-loader" {...props}>
+      <div className={`${comet === true ? "comet" : "bar"}-loader`}>
         {props.children}
       </div>
     </div>

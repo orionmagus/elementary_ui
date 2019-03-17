@@ -27,28 +27,65 @@ body {
   --trans: all 0.4s;
   --delay: 1s;
   --long-delay: 1.8s;
+  --bg-rotate: 0deg;
   background: rgb(32, 37, 43);
   color: var(--text-fg);
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  width: 100%;
-  height: 100%;
-  min-height: 100%;
-  padding: 0;
-  margin: 0;
 }
-
+@import "style/vars";
 * {
   box-sizing: border-box;
 }
-
+body,
+#root,
 .App {
-  @import "style/vars";
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  overflow-x: hidden;
   width: 100%;
   height: 100%;
   min-height: 100%;
   padding: 0;
   margin: 0;
+  box-sizing: content-box;
+}
+#root {
+  box-shadow: 1px 1px #fff;
+}
+body {
+  box-shadow: 1px 1px #0f0 inset;
+  height: 100vh;
+}
+
+nav {
+  & > a,
+  & > a:link,
+  & > a:visited,
+  & > a:active {
+    text-decoration: none;
+    padding: 0 8px;
+    background: #555;
+    transition: all 0.4s ease-in-out;
+    display: inline-block;
+    text-align: center;
+    width: 100px;
+    height: 35px;
+    font-size: 14px;
+    line-height: 2em;
+    border: 1px solid #333333;
+    &:hover {
+      transition: all 0.4s ease-in-out;
+      border: 1px solid #36f;
+      background: $primary;
+    }
+  }
+}
+.fdf {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.App {
   * {
     background: rgba(20, 23, 27, 0);
     color: $text_fg;

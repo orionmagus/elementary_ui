@@ -4,16 +4,18 @@ import * as htmlUtils from "./htmlUtils";
 import * as colorUtils from "./colorUtils";
 import * as reduxUtils from "./reduxUtils";
 import * as stringUtils from "./stringUtils";
+import * as formatUtils from "./formatUtils";
+import * as usefulUtils from "./usefulUtils";
 import * as transformUtils from "./transformUtils";
 
-const ld = () => {
-  return {
-    ...checkUtils,
-    ...componentUtils,
-    ...htmlUtils,
-    ...colorUtils,
-    ...reduxUtils,
-    ...stringUtils,
-    ...transformUtils
-  };
+export default {
+  ...checkUtils,
+  ...componentUtils,
+  ...htmlUtils,
+  ...colorUtils,
+  ...reduxUtils,
+  ...stringUtils,
+  ...transformUtils,
+  ...formatUtils,
+  ...usefulUtils
 };
